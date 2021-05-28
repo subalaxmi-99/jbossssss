@@ -12,6 +12,20 @@
   <name>my-app</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
+  <distributionManagement>
+<repository>
+<id>jboss-as-maven-plugin</id>
+<name>jboss-as-maven-plugin</name>
+<url>https://mvnrepository.com/artifact/org.jboss.as.plugins/jboss-as-maven-plugin</url>
+<layout>default</layout>
+ <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+</repository>
+</distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,13 +51,33 @@
     <groupId>org.jboss.as.plugins</groupId>
     <artifactId>jboss-as-maven-plugin</artifactId>
     <version>7.1.0.Final</version>
+    <executions>
+<execution>
+<id>undeploy</id>
+<phase>clean</phase>
+<goals>
+<goal>undeploy</goal>
+</goals>
+<configuration>
+<ignoreMissingDeployment>true</ignoreMissingDeployment>
+</configuration>
+</execution>
+<execution>
+<id>deploy</id>
+<phase>install</phase>
+<goals>
+<goal>deploy</goal>
+</goals>
+</execution>
+</executions>
      <configuration>
                 <force>true</force>
-                <hostname>${jboss-as.deploy.localhost}</hostname>
-                <username>${jboss-as.deploy.suba}</username>
-                <password>${jboss-as.deploy.pass.Suba@10701}</password>
+                <hostname>localhost</hostname>
+                <username>suba</username>
+                <password>Suba@10701</password>
+       <potr>9999</port>
                 <fileNames>
-                    <fileName>target/my-app-1.0-SNAPSHOT.war</fileName>
+                    <fileName>my-app-1.0.war</fileName>
                 </fileNames>
             </configuration>
      </plugin>
