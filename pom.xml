@@ -32,12 +32,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-  <properties>
-    <jboss-as.deploy.hostname>localhost</jboss-as.deploy.localhost>  <!-- Where to deploy. -->
-    <jboss-as.deploy.user>admin</jboss-as.deploy.suba>
-    <jboss-as.deploy.pass>${myproject.deploy.Suba@10701}</jboss-as.deploy.pass>
-    <plugin.war.warName>${project.build.my-app-1.0-SNAPSHOT}</plugin.war.warName>
-</properties>
+ 
 
   <dependencies>
     <dependency>
